@@ -58,3 +58,5 @@ var _scroller;
         window.onload = function() {
             setTimeout(_scroller.init, 100);
         };
+
+$("#info.html").contents().find("#ymaps-2-1-78-map-copyrights-promo").remove();
