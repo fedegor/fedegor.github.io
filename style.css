@@ -315,6 +315,7 @@ footer {
     border-radius: 20px;
     margin-left: 5px;
     margin-right: 5px;
+    margin: 5px 5px;
 }
 
 .big-a-contact:hover {
@@ -397,15 +398,18 @@ footer {
     margin-top: 66px;
 }
 
-.img-history-wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 510px;
-    height: 300px;
+.img-history {
+    width: 35%;
     margin-right: 15px;
+    background-size: cover;
+    height: auto;
 }
 
-.two-imgs {
-    display: flex;
+.photos-content {
+    display: block;
     flex-direction: row;
+}
+
+p {
+    margin-top: 0;
 }
