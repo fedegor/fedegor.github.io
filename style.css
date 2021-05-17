@@ -410,6 +410,8 @@ footer {
     flex-direction: row;
 }
 
-p {
-    margin-top: 0;
+.gallery-part {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 900;
 }
