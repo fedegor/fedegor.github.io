@@ -8,6 +8,7 @@
     <script src="script.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
 <body>
@@ -21,6 +22,18 @@
             <a href="info.html" class="link">Информация</a>
             <a href="history.html" class="link">История школы</a>
             <a href="gallery.html" class="link">Галерея</a>
+        </div>
+        <a class="mobile-menu-button" href="#"><i class="fas fa-bars"></i></a>
+        <div class="mobile-menu">
+            <div style="display: flex; justify-content: flex-end;">
+                <a class="mobile-menu-hide" href="#"><i class="fas fa-times"></i></a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="link">Главная</a></li>
+                <li><a href="info.html" class="link">Информация</a></li>
+                <li><a href="history.html" class="link">История школы</a></li>
+                <li><a href="gallery.html" class="link">Галерея</a></li>
+            </ul>
         </div>
     </header>
     <section>
@@ -39,6 +52,7 @@
                     </div>
                 </div>
             </div>
+            <div class="photo-for-mobile"><img src="img/main-1.jpg" alt="Подождите" style="width: 100%; height: auto; background-repeat: no-repeat;"></div>
         </div>
         <div class="double-adaptive">
             <div class="info block">
@@ -51,7 +65,7 @@
             </div>
             <div class="history block">
                 <a class="history-block-text" href="history.html">Узнайте историю школы<i class="fas fa-chevron-right" style="padding-left: 5px"></i></a>
-                <a href="history.html" style="display: block; height: auto; width: auto">
+                <a href="history.html" style="display: flex; height: auto;" id="history">
                     <img src="img/history.png" alt="" style="width: 100%; height: auto; margin-top: 10%"></a>
             </div>
         </div>
@@ -66,9 +80,31 @@
         </div>
     </section>
     <footer>
-        <img src="img/footer.png" alt="" style="width: 100px; height: 100px;">
-        <div style="line-height: 100px; margin-left: 20px;">β Новый виртуальный музей школы №1514 © Федоров Егор 8-1</div>
+        <img src="img/footer.png" alt="" style="" class="footer-img">
+        <div class="footer">β Новый виртуальный музей школы №1514</div>
     </footer>
-</body>
+    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var $mobile_menu = $('.mobile-menu');
 
-</html>
+            $(".mobile-menu-button, .mobile-menu-hide").click(function() {
+                $mobile_menu.slideToggle(300, function() {
+                    if ($mobile_menu.is(':hidden')) {
+                        $('body').removeClass('body_pointer');
+                    } else {
+                        $('body').addClass('body_pointer');
+                    }
+                });
+                return false;
+            });
+
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.menu').length) {
+                    $('body').removeClass('body_pointer');
+                    $mobile_menu.slideUp(300);
+                }
+            });
+        });
+    </script>
+</body></html>
