@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.ico">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
@@ -21,16 +22,28 @@
             <a href="history.html" class="link">История школы</a>
             <a href="gallery.html" class="link">Галерея</a>
         </div>
+        <a class="mobile-menu-button" href="#"><i class="fas fa-bars"></i></a>
+        <div class="mobile-menu">
+            <div style="display: flex; justify-content: flex-end;">
+                <a class="mobile-menu-hide" href="#"><i class="fas fa-times"></i></a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="link">Главная</a></li>
+                <li><a href="info.html" class="link">Информация</a></li>
+                <li><a href="history.html" class="link">История школы</a></li>
+                <li><a href="gallery.html" class="link">Галерея</a></li>
+            </ul>
+        </div>
     </header>
     <section style="padding: 32px 0;">
         <div class="bold-page-header">Основная информация</div>
-        <a class="page-header" style="margin: 15px 0; display: block;" href="https://gym1514uz.mskobr.ru/" target="_blank">Всю оперативную информацию (о поступлении, о родительских собраниях и т.д.) следует искать на "Официальном сайте Школы №1514" <i class="fas fa-external-link-alt"></i></a>
+        <a class="page-header" id="info" href="https://gym1514uz.mskobr.ru/" target="_blank">Всю оперативную информацию (о поступлении, о родительских собраниях и т.д.) следует искать на "Официальном сайте Школы №1514" <i class="fas fa-external-link-alt"></i></a>
         <div class="map-holder">
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6ab54f9de4d695bb1c913058b766af01e63591df25742c19af4bfbf5069a45be&amp;source=constructor" width="100%" height="650" frameborder="0" style="width: 100%; height: 650px" id="map"></iframe>
             <div class="show-map-link"><a href="https://yandex.ru/maps/?um=constructor%3Adf3f9aadd960af52d57fff8e707012531154b30fd94618286bfe734b8b21eac1&source=constructorLink" style="color: #3c4043;" target="_blank"><i class="fas fa-map-marked-alt"></i>Открыть карту</a></div>
         </div>
         <div style="padding-left: 10%; padding-right: 10%">
-            <div class="contacts"><span style="line-height: 40px;">Контакты:</span><a href="tel:+74991318038" class="big-a-contact"><i class="fas fa-phone-alt" style="margin-right: 5px;"></i>+7 (499) 131-80-38</a><a href="mailto:1514@edu.mos.ru" class="big-a-contact"><i class="fas fa-envelope" style="margin-right: 5px;"></i>1514@edu.mos.ru</a><a href="https://gym1514uz.mskobr.ru/#/" target="_blank" class="big-a-contact"><i class="fas fa-link" style="margin-right: 5px;"></i>Основной официальный сайт</a> </div>
+            <div class="contacts"><span style="line-height: 47px;">Контакты:</span><a href="tel:+74991318038" class="big-a-contact"><i class="fas fa-phone-alt" style="margin-right: 5px;"></i>+7 (499) 131-80-38</a><a href="mailto:1514@edu.mos.ru" class="big-a-contact"><i class="fas fa-envelope" style="margin-right: 5px;"></i>1514@edu.mos.ru</a><a href="https://gym1514uz.mskobr.ru/#/" target="_blank" class="big-a-contact"><i class="fas fa-link" style="margin-right: 5px;"></i>Основной официальный сайт</a> </div>
             <p>Государственное бюджетное образовательное учреждение города Москвы. Школа расположена в Ломоносовском районе Юго-Западного административного округа.<br> Приём в гимназию осуществляется с любого класса по результатам экзамена по следующим предметам: математика, русский язык, английский язык (собеседование). <br> По окончании 7 класса учащимся предоставляется возможность выбора профиля обучения: математический (алгебра, геометрия, информатика, физика), гуманитарный (английский язык, русский язык, словесность, иностранные языки (2 языка на выбор), истории), естественно-научный (биология физика, химия), инженерно-технологический (физика, робототехника, 3D принтер, алгебра, геометрия, информатика), ОТИМК (литература, история, иностранные языки (3 языка на выбор), английский язык) или культурологический профиль (латинский язык, философия, МХК).</p>
             <div class="info-adaptive">
                 <a class="doc block triple-adaptive-doc" href="https://gym1514uz.mskobr.ru/info_edu/all_docs/" target="_blank"><i class="fas fa-link" style="font-size: 21px; padding-right: 8px;"></i>Документы</a>
@@ -49,7 +62,31 @@
         </div>
     </section>
     <footer>
-        <img src="img/footer.png" alt="" style="width: 100px; height: 100px;">
-        <div style="line-height: 100px; margin-left: 20px;">β Новый виртуальный музей школы №1514 © Федоров Егор 8-1</div>
+        <img src="img/footer.png" alt="" style="" class="footer-img">
+        <div class="footer">β Новый виртуальный музей школы №1514</div>
     </footer>
-</body></html> 
+    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var $mobile_menu = $('.mobile-menu');
+
+            $(".mobile-menu-button, .mobile-menu-hide").click(function() {
+                $mobile_menu.slideToggle(300, function() {
+                    if ($mobile_menu.is(':hidden')) {
+                        $('body').removeClass('body_pointer');
+                    } else {
+                        $('body').addClass('body_pointer');
+                    }
+                });
+                return false;
+            });
+
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.menu').length) {
+                    $('body').removeClass('body_pointer');
+                    $mobile_menu.slideUp(300);
+                }
+            });
+        });
+    </script>
+</body></html>
