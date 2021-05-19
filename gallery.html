@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.ico">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
 <body>
     <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="" class="img-logo">
+        </div>
+        <header>
         <div class="logo">
             <img src="img/logo.png" alt="" class="img-logo">
         </div>
@@ -21,6 +26,19 @@
             <a href="history.html" class="link">История школы</a>
             <a href="gallery.html" class="link">Галерея</a>
         </div>
+        <a class="mobile-menu-button" href="#"><i class="fas fa-bars"></i></a>
+        <div class="mobile-menu">
+            <div style="display: flex; justify-content: flex-end;">
+                <a class="mobile-menu-hide" href="#"><i class="fas fa-times"></i></a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="link">Главная</a></li>
+                <li><a href="info.html" class="link">Информация</a></li>
+                <li><a href="history.html" class="link">История школы</a></li>
+                <li><a href="gallery.html" class="link">Галерея</a></li>
+            </ul>
+        </div>
+    </header>
     </header>
     <section>
         <div class="bold-page-header">Галерея</div>
@@ -83,4 +101,28 @@
         <img src="img/footer.png" alt="" style="width: 100px; height: 100px;">
         <div style="line-height: 6em; margin-left: 20px;">β Новый виртуальный музей школы №1514 © Федоров Егор 8-1</div>
     </footer>
+    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var $mobile_menu = $('.mobile-menu');
+
+            $(".mobile-menu-button, .mobile-menu-hide").click(function() {
+                $mobile_menu.slideToggle(300, function() {
+                    if ($mobile_menu.is(':hidden')) {
+                        $('body').removeClass('body_pointer');
+                    } else {
+                        $('body').addClass('body_pointer');
+                    }
+                });
+                return false;
+            });
+
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.menu').length) {
+                    $('body').removeClass('body_pointer');
+                    $mobile_menu.slideUp(300);
+                }
+            });
+        });
+    </script>
 </body></html>
